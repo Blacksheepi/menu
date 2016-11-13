@@ -14,3 +14,7 @@ A universal command line subsystem for menu
 
 #version3.0:
 将通用的linktable模块集成到menu程序中。使用linktable模块相当于将内容装进盒子里，利用C中指针，通过定义对盒子的操作来实现对具体的操作，并具有通用性。
+
+#version4.0:
+在linktable中增加seach功能，使得linktable变得更加通用，在这里我们使用callback方式的接口，即search的判断条件condition（）函数定义在menu.c中，
+当condition返回为success时，表示成功搜索到。而condition（）的输入由search提供。一个形象的比喻就是卧底。即condition（）是linktable放在menu.c中的卧底，卧底对linktable中的信息在menu.c中进行验证，并把结果返回linktable中。此外，我们在linktable.h中只保留对链表和链表节点的数据结构的声明，具体的实现放在linktable.c中。以实现对接口信息的隐藏。
